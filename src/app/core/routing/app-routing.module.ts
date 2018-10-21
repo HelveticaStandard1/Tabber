@@ -9,12 +9,11 @@ import {SecureHomeComponent} from '../../public/secure/secure-home/secure-home.c
 const homeRoutes: Routes = [
   {
     path: '',
-    redirectTo: '/home',
+    redirectTo: '/home/login',
     pathMatch: 'full'
   },
   {
     path: 'home',
-    component: HomeComponent,
     children: [
       {path: 'login', component: LoginComponent},
       {path: 'register', component: RegisterComponent},

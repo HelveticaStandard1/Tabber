@@ -1,6 +1,5 @@
 import {NgtUniversalModule} from '@ng-toolkit/universal';
 import {CommonModule} from '@angular/common';
-import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
@@ -9,7 +8,6 @@ import {LoginComponent} from './public/auth/login/login.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MaterialModule} from './core/material/material.module';
 import {FormsModule} from '@angular/forms';
-import {ToolbarComponent} from './public/toolbar/toolbar.component';
 import {CognitoUtil} from './services/cognito/cognito.service';
 import {RegisterComponent} from './public/auth/register/register.component';
 import {NewpasswordComponent} from './public/auth/newpassword/newpassword.component';
@@ -23,7 +21,6 @@ import {SecureHomeComponent} from './public/secure/secure-home/secure-home.compo
   declarations: [
     AppComponent,
     LoginComponent,
-    ToolbarComponent,
     RegisterComponent,
     NewpasswordComponent,
     HomeComponent,

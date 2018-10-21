@@ -29,6 +29,10 @@ export class LoginComponent implements CognitoCallback, OnInit, LoggedInCallback
     this.userService.isAuthenticated(this);
   }
 
+  goToRegister() {
+    this.router.navigate(['/home/register']);
+  }
+
   onLogin() {
     if (this.username == null || this.password == null) {
       this.errorMessage = 'All fields are required';
