@@ -1,0 +1,17 @@
+{
+  "serverless": {
+    "provider": "aws",
+    "skipInstall": false,
+    "directory": ".",
+    "project": "PathFinderTracker",
+    "serverless": {
+      "aws": {},
+      "gcloud": {}
+    }
+  },
+  "universal": {
+    "skipInstall": false,
+    "directory": ".",
+    "project": "PathFinderTracker"
+  }
+}
