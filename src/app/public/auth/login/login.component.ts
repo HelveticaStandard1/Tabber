@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {UserLoginService} from '../../../services/userLogin/user-login.service';
 import {CognitoCallback, LoggedInCallback} from '../../../services/cognito/cognito.service';
-import {DynamoDBService} from '../../../services/ddb/ddb.service';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +20,6 @@ export class LoginComponent implements CognitoCallback, OnInit, LoggedInCallback
   };
 
   constructor(public router: Router,
-              public ddb: DynamoDBService,
               public userService: UserLoginService) {
   }
 
@@ -52,7 +50,6 @@ export class LoginComponent implements CognitoCallback, OnInit, LoggedInCallback
         this.router.navigate(['/home/newPassword']);
       }
     } else {
-      this.ddb.writeLogEntry('login');
       this.router.navigate(['/securehome']);
     }
   }

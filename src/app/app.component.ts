@@ -8,7 +8,7 @@ import {Component, OnInit, Inject, PLATFORM_ID} from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'PathFinderTracker';
+  title = 'Tabber';
 
   public ngOnInit(): void {
     if (!isPlatformBrowser(this.platformId)) {

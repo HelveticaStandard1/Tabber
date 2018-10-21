@@ -1,20 +1,20 @@
 {
   "service": {
-    "service": "pathfindertracker",
+    "service": "tabber",
     "serviceObject": {
-      "name": "pathfindertracker"
+      "name": "tabber"
     },
     "provider": {
-      "stage": "dev",
+      "stage": "production",
       "region": "us-east-1",
       "variableSyntax": "\\${([ ~:a-zA-Z0-9._'\",\\-\\/\\(\\)]+?)}",
       "name": "aws",
       "runtime": "nodejs8.10",
       "memorySize": 192,
       "timeout": 10,
-      "deploymentBucket": "pathfinder-gametracker",
+      "deploymentBucket": "tabber-pwa",
       "deploymentBucketObject": {
-        "name": "pathfinder-gametracker"
+        "name": "tabber-pwa"
       },
       "versionFunctions": true,
       "remoteFunctionData": null,
@@ -25,7 +25,7 @@
           "ApiLogGroup": {
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
-              "LogGroupName": "/aws/lambda/pathfindertracker-dev-api"
+              "LogGroupName": "/aws/lambda/tabber-production-api"
             }
           },
           "IamRoleLambdaExecution": {
@@ -53,8 +53,8 @@
                     "Fn::Join": [
                       "-",
                       [
-                        "dev",
-                        "pathfindertracker",
+                        "production",
+                        "tabber",
                         "lambda"
                       ]
                     ]
@@ -69,7 +69,7 @@
                         ],
                         "Resource": [
                           {
-                            "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/pathfindertracker-dev-api:*"
+                            "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/tabber-production-api:*"
                           }
                         ]
                       },
@@ -80,7 +80,7 @@
                         ],
                         "Resource": [
                           {
-                            "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/pathfindertracker-dev-api:*:*"
+                            "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/tabber-production-api:*:*"
                           }
                         ]
                       }
@@ -93,8 +93,8 @@
                 "Fn::Join": [
                   "-",
                   [
-                    "pathfindertracker",
-                    "dev",
+                    "tabber",
+                    "production",
                     "us-east-1",
                     "lambdaRole"
                   ]
@@ -106,10 +106,10 @@
             "Type": "AWS::Lambda::Function",
             "Properties": {
               "Code": {
-                "S3Bucket": "pathfinder-gametracker",
-                "S3Key": "serverless/pathfindertracker/dev/1540053689318-2018-10-20T16:41:29.318Z/pathfindertracker.zip"
+                "S3Bucket": "tabber-pwa",
+                "S3Key": "serverless/tabber/production/1540141132199-2018-10-21T16:58:52.199Z/tabber.zip"
               },
-              "FunctionName": "pathfindertracker-dev-api",
+              "FunctionName": "tabber-production-api",
               "Handler": "lambda.universal",
               "MemorySize": 192,
               "Role": {
@@ -126,20 +126,20 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "ApiLambdaVersion45odAHi5B4tHyF2MpKvdHIyHuemwFslwH8jzu2KlAs": {
+          "ApiLambdaVersionIl4BnPx5o9bd2qGuaryjrTHGUJWRnkzDkQHnlxbU": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "ApiLambdaFunction"
               },
-              "CodeSha256": "0iz4iIRXcgEuYEp4gyds2hAwjENvz9maB7m2ig9ZWVM="
+              "CodeSha256": "inWVyGR3bVMYhCmu3yh5R2OTRamVBeknT4TQsMZ+F4o="
             }
           },
           "ApiGatewayRestApi": {
             "Type": "AWS::ApiGateway::RestApi",
             "Properties": {
-              "Name": "dev-pathfindertracker",
+              "Name": "production-tabber",
               "EndpointConfiguration": {
                 "Types": [
                   "EDGE"
@@ -243,13 +243,13 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1540053689345": {
+          "ApiGatewayDeployment1540141132225": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
                 "Ref": "ApiGatewayRestApi"
               },
-              "StageName": "dev"
+              "StageName": "production"
             },
             "DependsOn": [
               "ApiGatewayMethodProxyVarAny",
@@ -292,12 +292,12 @@
         },
         "Outputs": {
           "ServerlessDeploymentBucketName": {
-            "Value": "pathfinder-gametracker"
+            "Value": "tabber-pwa"
           },
           "ApiLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "ApiLambdaVersion45odAHi5B4tHyF2MpKvdHIyHuemwFslwH8jzu2KlAs"
+              "Ref": "ApiLambdaVersionIl4BnPx5o9bd2qGuaryjrTHGUJWRnkzDkQHnlxbU"
             }
           },
           "ServiceEndpoint": {
@@ -310,7 +310,7 @@
                   {
                     "Ref": "ApiGatewayRestApi"
                   },
-                  ".execute-api.us-east-1.amazonaws.com/dev"
+                  ".execute-api.us-east-1.amazonaws.com/production"
                 ]
               ]
             }
@@ -340,15 +340,15 @@
             "http": "ANY /"
           }
         ],
-        "name": "pathfindertracker-dev-api",
+        "name": "tabber-production-api",
         "package": {},
         "vpc": {}
       }
     },
-    "artifact": "C:\\Users\\Nick\\WebstormProjects\\PathFinderTracker\\.serverless\\pathfindertracker.zip"
+    "artifact": "C:\\Users\\Nick\\WebstormProjects\\Tabber\\.serverless\\tabber.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/pathfindertracker/dev/1540053689318-2018-10-20T16:41:29.318Z",
-    "artifact": "pathfindertracker.zip"
+    "artifactDirectoryName": "serverless/tabber/production/1540141132199-2018-10-21T16:58:52.199Z",
+    "artifact": "tabber.zip"
   }
 }

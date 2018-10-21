@@ -3,7 +3,7 @@
     "provider": "aws",
     "skipInstall": false,
     "directory": ".",
-    "project": "PathFinderTracker",
+    "project": "Tabber",
     "serverless": {
       "aws": {},
       "gcloud": {}
@@ -12,6 +12,6 @@
   "universal": {
     "skipInstall": false,
     "directory": ".",
-    "project": "PathFinderTracker"
+    "project": "Tabber"
   }
 }
