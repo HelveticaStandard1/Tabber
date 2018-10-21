@@ -107,7 +107,7 @@
             "Properties": {
               "Code": {
                 "S3Bucket": "tabber-pwa",
-                "S3Key": "serverless/tabber/production/1540141132199-2018-10-21T16:58:52.199Z/tabber.zip"
+                "S3Key": "serverless/tabber/production/1540142367226-2018-10-21T17:19:27.226Z/tabber.zip"
               },
               "FunctionName": "tabber-production-api",
               "Handler": "lambda.universal",
@@ -126,14 +126,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "ApiLambdaVersionIl4BnPx5o9bd2qGuaryjrTHGUJWRnkzDkQHnlxbU": {
+          "ApiLambdaVersionmxNxcOjzde6m9Oxo9X2CorLqrgUh9NTD4ZkEkzoQQ": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "ApiLambdaFunction"
               },
-              "CodeSha256": "inWVyGR3bVMYhCmu3yh5R2OTRamVBeknT4TQsMZ+F4o="
+              "CodeSha256": "DUNTAzA2hy5tWZ5tGO3h0M27Xm2rHw+GcdT2JclkkDI="
             }
           },
           "ApiGatewayRestApi": {
@@ -243,7 +243,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1540141132225": {
+          "ApiGatewayDeployment1540142367252": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -297,7 +297,7 @@
           "ApiLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "ApiLambdaVersionIl4BnPx5o9bd2qGuaryjrTHGUJWRnkzDkQHnlxbU"
+              "Ref": "ApiLambdaVersionmxNxcOjzde6m9Oxo9X2CorLqrgUh9NTD4ZkEkzoQQ"
             }
           },
           "ServiceEndpoint": {
@@ -348,7 +348,7 @@
     "artifact": "C:\\Users\\Nick\\WebstormProjects\\Tabber\\.serverless\\tabber.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/tabber/production/1540141132199-2018-10-21T16:58:52.199Z",
+    "artifactDirectoryName": "serverless/tabber/production/1540142367226-2018-10-21T17:19:27.226Z",
     "artifact": "tabber.zip"
   }
 }

@@ -5,6 +5,7 @@ import {RegisterComponent} from '../../public/auth/register/register.component';
 import {HomeComponent} from '../../public/home/home.component';
 import {ConfirmRegistrationComponent} from '../../public/auth/confirm-registration/confirm-registration.component';
 import {SecureHomeComponent} from '../../public/secure/secure-home/secure-home.component';
+import {TabActionsComponent} from '../../public/secure/tab-actions/tab-actions.component';
 
 const homeRoutes: Routes = [
   {
@@ -29,14 +30,10 @@ const secureHomeRoutes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'securehome', component: SecureHomeComponent
-    // ,
-    // children: [
-    //   {path: 'logout', component: LogoutComponent},
-    //   {path: 'jwttokens', component: JwtComponent},
-    //   {path: 'myprofile', component: MyProfileComponent},
-    //   {path: 'useractivity', component: UseractivityComponent},
-    //   {path: '', component: MyProfileComponent}]
+    path: 'securehome', component: SecureHomeComponent,
+    children: [
+      {path: 'tab-actions', component: TabActionsComponent}
+    ]
   }
 ];
 

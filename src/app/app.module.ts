@@ -16,6 +16,7 @@ import {UserLoginService} from './services/userLogin/user-login.service';
 import {HomeComponent} from './public/home/home.component';
 import {ConfirmRegistrationComponent} from './public/auth/confirm-registration/confirm-registration.component';
 import {SecureHomeComponent} from './public/secure/secure-home/secure-home.component';
+import {TabActionsComponent} from './public/secure/tab-actions/tab-actions.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {SecureHomeComponent} from './public/secure/secure-home/secure-home.compo
     NewpasswordComponent,
     HomeComponent,
     ConfirmRegistrationComponent,
-    SecureHomeComponent
+    SecureHomeComponent,
+    TabActionsComponent
   ],
   imports: [
     CommonModule,

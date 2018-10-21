@@ -42,7 +42,7 @@ export class ConfirmRegistrationComponent implements OnInit, OnDestroy {
     } else {
       console.log('Moving to securehome');
       // this.configs.curUser = result.user;
-      this.router.navigate(['/securehome']);
+      this.router.navigate(['/securehome/login']);
     }
   }
 }
