@@ -18,6 +18,7 @@ export class RegisterComponent implements CognitoCallback {
   registrationUser: RegistrationUser;
   router: Router;
   errorMessage: string;
+  loading: boolean;
 
   constructor(public userRegistration: UserRegistrationService, router: Router) {
     this.router = router;
@@ -30,6 +31,7 @@ export class RegisterComponent implements CognitoCallback {
   }
 
   onRegister() {
+    this.loading = true;
     this.errorMessage = null;
     this.userRegistration.register(this.registrationUser, this);
   }
@@ -42,6 +44,11 @@ export class RegisterComponent implements CognitoCallback {
       console.log('redirecting');
       this.router.navigate(['/home/confirm-registration', result.user.username]);
     }
+    this.loading = false;
+  }
+
+  goToLogin() {
+    this.router.navigate(['/home/login']);
   }
 }
 

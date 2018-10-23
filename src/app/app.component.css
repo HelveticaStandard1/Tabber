@@ -1,0 +1,54 @@
+.tab-submit-btn {
+  border-radius: 0.6rem;
+}
+
+.auth-form > * {
+  width: 75%;
+  margin-bottom: 10px;
+  color: darkslategray;
+  font-family: sans-serif;
+  font-size: 18px;
+}
+
+.auth-form {
+  position: fixed;
+}
+
+.auth-form-footer {
+  position: fixed;
+  bottom: 3%;
+  left: 0;
+  right: 0;
+}
+
+.full-screen-spinner {
+  position: absolute !important;
+  right: 0;
+  left: 0;
+  margin: auto;
+  bottom: 50%;
+}
+
+#side-nav-launch-btn {
+  position: fixed;
+  top: 5px;
+  left: 5px;
+  font-size: 33px;
+}
+
+.profile-icon {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  position: relative;
+  background: gray;
+}
+
+.auth-form-header {
+  top: 10%;
+  position: fixed;
+  width: 75%;
+  left: 0;
+  right: 0;
+  margin: auto;
+}

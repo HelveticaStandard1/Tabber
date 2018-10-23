@@ -12,6 +12,7 @@ export class ConfirmRegistrationComponent implements OnInit, OnDestroy {
   confirmationCode: string;
   userName: string;
   errorMessage: string;
+  loading: boolean;
   private sub: any;
 
   constructor(public regService: UserRegistrationService, public router: Router, public route: ActivatedRoute) {
@@ -20,7 +21,6 @@ export class ConfirmRegistrationComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.userName = params['username'];
-
     });
 
     this.errorMessage = null;
@@ -31,19 +31,28 @@ export class ConfirmRegistrationComponent implements OnInit, OnDestroy {
   }
 
   onConfirmRegistration() {
+    this.loading = true;
     this.errorMessage = null;
     this.regService.confirmRegistration(this.userName, this.confirmationCode, this);
   }
 
   cognitoCallback(message: string, result: any) {
-    if (message != null) { //error
+    if (message != null) {
       this.errorMessage = message;
       console.log('message: ' + this.errorMessage);
     } else {
       console.log('Moving to securehome');
-      // this.configs.curUser = result.user;
-      this.router.navigate(['/securehome/login']);
+      this.router.navigate(['/home/login']);
     }
+    this.loading = false;
+  }
+
+  goToLogin() {
+    this.router.navigate(['/home/login']);
+  }
+
+  goToRegister() {
+    this.router.navigate(['/home/register']);
   }
 }
 

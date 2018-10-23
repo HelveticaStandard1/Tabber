@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {AuthenticationDetails, CognitoUser, CognitoUserSession} from 'amazon-cognito-identity-js';
-import {CognitoCallback, CognitoUtil, LoggedInCallback} from '../cognito/cognito.service';
+import {Callback, CognitoCallback, CognitoUtil, LoggedInCallback} from '../cognito/cognito.service';
 import {environment} from '../../../environments/environment';
 import * as AWS from 'aws-sdk/global';
 import * as STS from 'aws-sdk/clients/sts';
@@ -110,10 +110,12 @@ export class UserLoginService {
     });
   }
 
-  logout() {
+  logout(callback: Callback) {
     console.log('UserLoginService: Logging out');
     this.cognitoUtil.getCurrentUser().signOut();
-
+    if (callback) {
+      callback.callback();
+    }
   }
 
   isAuthenticated(callback: LoggedInCallback) {

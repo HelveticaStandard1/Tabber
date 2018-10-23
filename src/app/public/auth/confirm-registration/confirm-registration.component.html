@@ -1,25 +1,21 @@
-<mat-card class="auth-card">
-  <mat-card-header>
-    <mat-card-title>Confirm Registration</mat-card-title>
-    <mat-card-subtitle>Please check your email to certify your account.</mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
-    <div *ngIf="errorMessage!=null" class="alert alert-danger">
-      {{ errorMessage }}
-    </div>
-    <form (ngSubmit)="onConfirmRegistration()" #confirmRegistrationForm="ngForm" class="auth-form">
-      <mat-form-field>
-        <input matInput placeholder="User Name" [(ngModel)]="userName" name="username" type="text" required>
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Confirmation Code" [(ngModel)]="confirmationCode" name="confirmationCode"
-               type="text" required>
-      </mat-form-field>
-    </form>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button (click)="onConfirmRegistration()" [disabled]="!confirmRegistrationForm.form.valid"
-            color="primary">Confirm Registration
-    </button>
-  </mat-card-actions>
-</mat-card>
+<div id="confirm-registration-form" *ngIf="!loading">
+  <div>Confirm Registration</div>
+  <p>Please check your email to certify your account.</p>
+  <form (ngSubmit)="onConfirmRegistration()" #confirmRegistrationForm="ngForm"
+        class="auth-form confirm-registration-form">
+    <mat-form-field>
+      <input matInput placeholder="User Name" [(ngModel)]="userName" name="username" type="text" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Confirmation Code" [(ngModel)]="confirmationCode" name="confirmationCode"
+             type="text" required>
+    </mat-form-field>
+    <input type="submit" class="btn tab-submit-btn" (click)="onConfirmRegistration()"
+           [disabled]="!confirmRegistrationForm.form.valid" value="Register">
+  </form>
+  <footer class="auth-form-footer">
+    <button class="btn btn-link" (click)="goToLogin()">Login</button>
+    <button class="btn btn-link" (click)="goToRegister()">Register</button>
+  </footer>
+</div>
+<mat-spinner *ngIf="loading" class="full-screen-spinner"></mat-spinner>

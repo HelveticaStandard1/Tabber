@@ -1,0 +1,38 @@
+#side-bar-container {
+  background: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  max-width: 300px;
+  width: 60%;
+}
+
+#side-bar-header {
+  display: inline-flex;
+  width: 100%;
+  background: black;
+  color: white;
+  max-height: 80px;
+  min-height: 70px;
+}
+
+#side-bar-header > .profile-icon {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+#side-bar-header > div {
+  display: block;
+  margin-top: 10px;
+  margin-left: 5px;
+  text-align: left;
+}
+
+.current-user-header {
+
+}
+
+.current-user-subtext {
+  opacity: 0.75;
+}

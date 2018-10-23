@@ -4,7 +4,7 @@ import {
   MatButtonModule,
   MatCardModule, MatDialogModule,
   MatIconModule,
-  MatInputModule,
+  MatInputModule, MatListModule,
   MatMenuModule,
   MatProgressSpinnerModule,
   MatTableModule,
@@ -22,7 +22,8 @@ import {
     MatTableModule,
     MatMenuModule,
     MatIconModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatListModule
   ],
   exports: [
     CommonModule,
@@ -34,7 +35,8 @@ import {
     MatTableModule,
     MatMenuModule,
     MatIconModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatListModule
   ],
 })
 export class MaterialModule {

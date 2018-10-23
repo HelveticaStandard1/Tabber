@@ -9,8 +9,10 @@ import {LoggedInCallback} from '../../services/cognito/cognito.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit, LoggedInCallback {
+  router: Router;
 
-  constructor(public userService: UserLoginService, public router: Router) {
+  constructor(public userService: UserLoginService, router: Router) {
+    this.router = router;
   }
 
   ngOnInit() {

@@ -1,2 +1,8 @@
+<mat-icon id="side-nav-launch-btn" (click)="openDrawer = true">menu</mat-icon>
 <h1>You are logged in!</h1>
+<!--<app-side-nav [hidden] ="openDrawer" [openDrawer]="openDrawer" (closeDrawer)="closeDrawer()"></app-side-nav>-->
+<div class="side-nav" [style.opacity]="openDrawer ? '1' : '0'" [style.visibility]="openDrawer ? 'visible' : 'hidden'"
+     [style.left]="openDrawer ? '500px' : '-100%'">
+  <app-side-nav (closeDrawer)="closeDrawer()"></app-side-nav>
+</div>
 <router-outlet></router-outlet>

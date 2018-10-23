@@ -1,19 +1,12 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 html, body {
   height: 100%;
+  background-image: linear-gradient(cornsilk, #B0C4DE);
 }
 
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
-}
-
-.auth-card {
-  max-width: 400px;
-  margin: 5% auto;
-}
-
-.auth-form > * {
-  width: 100%;
 }

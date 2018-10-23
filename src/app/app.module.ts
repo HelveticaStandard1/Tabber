@@ -17,6 +17,7 @@ import {HomeComponent} from './public/home/home.component';
 import {ConfirmRegistrationComponent} from './public/auth/confirm-registration/confirm-registration.component';
 import {SecureHomeComponent} from './public/secure/secure-home/secure-home.component';
 import {TabActionsComponent} from './public/secure/tab-actions/tab-actions.component';
+import {SideNavComponent} from './public/common/side-nav/side-nav.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {TabActionsComponent} from './public/secure/tab-actions/tab-actions.compo
     HomeComponent,
     ConfirmRegistrationComponent,
     SecureHomeComponent,
-    TabActionsComponent
+    TabActionsComponent,
+    SideNavComponent
   ],
   imports: [
     CommonModule,

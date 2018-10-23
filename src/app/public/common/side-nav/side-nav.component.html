@@ -1,0 +1,16 @@
+<div id="side-bar-container">
+  <div id="side-bar-header">
+    <div class="profile-icon"></div>
+    <div>
+      <div class="current-user-header">{{currentUser}}</div>
+      <div class="current-user-subtext">Some subtext</div>
+    </div>
+  </div>
+  <div>
+    <mat-list role="list">
+      <mat-list-item role="listitem">Profile</mat-list-item>
+      <mat-list-item role="listitem">Settings</mat-list-item>
+      <mat-list-item role="listitem"><a href="#" (click)="onLogout()">Logout</a></mat-list-item>
+    </mat-list>
+  </div>
+</div>

@@ -1,0 +1,4 @@
+.side-nav {
+  transition: all .3s;
+  position: fixed;
+}

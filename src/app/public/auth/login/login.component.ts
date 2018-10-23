@@ -10,8 +10,10 @@ import {CognitoCallback, LoggedInCallback} from '../../../services/cognito/cogni
 })
 export class LoginComponent implements CognitoCallback, OnInit, LoggedInCallback {
 
+  router: Router;
   username: string;
   password: string;
+  loading: boolean;
   errorMessage: string;
   mfaStep = false;
   mfaData = {
@@ -19,11 +21,13 @@ export class LoginComponent implements CognitoCallback, OnInit, LoggedInCallback
     callback: null
   };
 
-  constructor(public router: Router,
+  constructor(router: Router,
               public userService: UserLoginService) {
+    this.router = router;
   }
 
   ngOnInit() {
+    this.loading = true;
     this.errorMessage = null;
     console.log('Checking if the user is already authenticated. If so, then redirect to the secure site');
     this.userService.isAuthenticated(this);
@@ -46,7 +50,9 @@ export class LoginComponent implements CognitoCallback, OnInit, LoggedInCallback
     if (message != null) {
       this.errorMessage = message;
       console.log('result: ' + this.errorMessage);
-      if (this.errorMessage === 'User is not confirmed.') {
+      if (this.errorMessage === 'User does not exist.') {
+        window.alert('Could not log in with that user.  If you are not registered, please click Register');
+      } else if (this.errorMessage === 'User is not confirmed.') {
         console.log('redirecting');
         this.router.navigate(['/home/confirmRegistration', this.username]);
       } else if (this.errorMessage === 'User needs to set password.') {
@@ -56,12 +62,14 @@ export class LoginComponent implements CognitoCallback, OnInit, LoggedInCallback
     } else {
       this.router.navigate(['/securehome/tab-actions']);
     }
+    this.loading = false;
   }
 
   isLoggedIn(message: string, isLoggedIn: boolean): void {
     if (isLoggedIn) {
       this.router.navigate(['/securehome/tab-actions']);
     }
+    this.loading = false;
   }
 
 }

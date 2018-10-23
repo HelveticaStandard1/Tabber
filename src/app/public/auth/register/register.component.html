@@ -1,26 +1,24 @@
-<mat-card class="auth-card">
-  <mat-card-header>
-    <mat-card-title>Register</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <div *ngIf="errorMessage!=null" class="alert alert-danger">
-      {{ errorMessage }}
-    </div>
-    <form (submit)="onRegister()" #registerForm="ngForm" class="auth-form">
-      <mat-form-field>
-        <input matInput placeholder="User Name" [(ngModel)]="registrationUser.userName" name="name" type="text"
-               required>
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Email" [(ngModel)]="registrationUser.email" name="email" type="email" required>
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Password" [(ngModel)]="registrationUser.password" type="password" name="password"
-               required>
-      </mat-form-field>
-    </form>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button type="submit" (click)="onRegister()" [disabled]="!registerForm.form.valid" color="primary">Register</button>
-  </mat-card-actions>
-</mat-card>
+<div id="register-form" *ngIf="!loading">
+  <div class="auth-form-header">
+    <h4>Register</h4>
+    <p>Select a user name and provide an email to register.  An email will be sent with instructions for confirmation.</p>
+  </div>
+  <form (ngSubmit)="onRegister()" #registerForm="ngForm" class="auth-form register-form">
+    <mat-form-field>
+      <input matInput placeholder="User Name" [(ngModel)]="registrationUser.userName" name="name" type="text"
+             required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Email" [(ngModel)]="registrationUser.email" name="email" type="email" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Password" [(ngModel)]="registrationUser.password" type="password" name="password"
+             required>
+    </mat-form-field>
+    <input type="submit" class="btn tab-submit-btn" (click)="onRegister()" [disabled]="!registerForm.form.valid" value="Register">
+  </form>
+  <footer class="auth-form-footer">
+    <button class="btn btn-link" (click)="goToLogin()">Login</button>
+  </footer>
+</div>
+<mat-spinner *ngIf="loading" class="full-screen-spinner"></mat-spinner>
